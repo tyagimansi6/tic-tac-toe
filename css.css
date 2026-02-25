@@ -1,0 +1,142 @@
+body {
+  margin: 2px;
+  height: 100vh;
+
+  background: linear-gradient(
+    -45deg,
+    #d22da4,
+    #e88dcb,
+    #f4a599,
+    #edd7e7
+  );
+
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+h1 {
+  color: rgb(247, 248, 249);
+  font-size: 40px;
+  text-align: center;
+  background-color: rgb(222, 157, 213);
+    padding: 20px;
+    border-radius: 10px black solid 2px;
+    margin: 20px auto;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+.title {
+  position: relative;
+}
+
+.title:hover::after {
+  content: "♡ ♡ ♡";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -20px;
+  color: white;
+  animation: floatUp 0.6s ease forwards;
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -10px);
+  }
+}
+/* container */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* allows clicks through hearts */
+  overflow: hidden;
+}
+
+/* each heart */
+.hearts span {
+  position: absolute;
+  bottom: -20px;
+  color: white;
+  font-size: 20px;
+  animation: floatHearts 8s linear infinite;
+  opacity: 0.7;
+}
+
+/* different positions & speeds */
+.hearts span:nth-child(1) { left: 10%; animation-duration: 6s; }
+.hearts span:nth-child(2) { left: 25%; animation-duration: 9s; }
+.hearts span:nth-child(3) { left: 40%; animation-duration: 7s; }
+.hearts span:nth-child(4) { left: 55%; animation-duration: 10s; }
+.hearts span:nth-child(5) { left: 70%; animation-duration: 8s; }
+.hearts span:nth-child(6) { left: 85%; animation-duration: 11s; }
+.hearts span:nth-child(7) { left: 50%; animation-duration: 12s; }
+.hearts span:nth-child(8) { left: 30%; animation-duration: 9s; }
+
+/* animation */
+@keyframes floatHearts {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+/* the button styling  */
+#startScreen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#startImage {
+  width: 350px; /* adjust as needed */
+  height: auto;
+  margin-top: -50px;
+}
+
+
+#startBtn {
+  width: 30vw;
+  padding: 4px;
+  font-size: 26px;
+  font-style: italic;
+  border: none;
+  border-radius: 14px;
+  background-color: #ff9ecb;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+#startBtn:hover {
+  background-color: #ff85bf;
+  transform: scale(1.05);
+}
+.winner-cell {
+    background-color: #ff9ecb !important;
+    color: white !important;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
